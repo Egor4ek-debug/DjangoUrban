@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title%}
+    <title>Main page</title>
+    {%endblock%}
+</head>
+<body>
+<header>
+    {% block header %}
+    <h1>Main page</h1>
+    {% endblock %}
+</header>
+<nav>
+    {% block nav %}
+    <p><a href="/">{{main_page}}</a></p>
+    <p><a href="/store">{{second_page}}</a></p>
+    <p><a href="/cart">{{third_page}}</a></p>
+    {% endblock %}
+</nav>
+
+{% block content %}
+
+{%endblock%}
+</body>
+</html>
