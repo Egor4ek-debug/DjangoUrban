@@ -1,0 +1,24 @@
+{% extends "fourth_task/menu.html" %}
+
+
+{% block header %}
+{{ block.super }}
+<h2>Store</h2>
+{% endblock %}
+
+{% block nav %}
+{{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+{% for image, shoe in combined %}
+<li>
+    <img src={{image}} width="200" height="300"
+         alt={{shoe}}>
+    <p>{{ shoe }}</p>
+    <button type="button">{{ text_button }}</button>
+</li>
+{% endfor %}
+
+{% endblock %}
