@@ -1,0 +1,25 @@
+{% extends "fourth_task/menu.html" %}
+
+{% block header %}
+{{ block.super }}
+<h2>Store</h2>
+{% endblock %}
+
+{% block nav %}
+{{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<ul>
+    {% for game in games %}
+    <li>
+        <p><strong>{{ game.title }}</strong> | {{ game.description }}.Стоимость: {{ game.cost }} руб.
+            <button type="button">{{ text_button }}</button>
+        </p>
+
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
