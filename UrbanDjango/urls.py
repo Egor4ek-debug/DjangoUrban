@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from task5.views import sign_up_by_django, sign_up_by_html
+from task2.views import func_template, class_template
 from django.views.generic import TemplateView
 
 urlpatterns = [
     path("", sign_up_by_html, name="sign_up_by_html"),
     path("django_sign_up/", sign_up_by_django, name="sign_up_by_django"),
+    path("class_templates/", class_template.as_view()),
+    path("func_templates/", func_template)
 ]
