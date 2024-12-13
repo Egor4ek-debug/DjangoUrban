@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Buyer, Game
+from django.core.paginator import Paginator
+from .models import Buyer, Game, News
 from .forms import UserRegister
 
 text_all_button = 'Back to main page'
@@ -82,6 +83,7 @@ def sign_up_by_django(request):
     info["form"] = form
     return render(request, "fifth_task/registration_page.html", info)
 
+
 # def sign_up_by_html(request):
 #     info = {}
 #     if request.method == "POST":
@@ -103,3 +105,11 @@ def sign_up_by_django(request):
 #             info["success"] = f"Приветствуем, {username}!"
 #
 #     return render(request, "UrbanDjango/templates/fifth_task/registration_page.html", info)
+
+def news(request):
+    news_list = News.objects.all().order_by('-date')
+    paginator = Paginator(news_list, 5)
+    page_number = request.GET.get('page')
+    news_page = paginator.get_page(page_number)
+
+    return render(request, 'platform/news.html', {'news': news_page})
